@@ -77,6 +77,9 @@ def process(url, outdir):
 
     if old != None:
         entries = process_additions(entries, old['entries'])
+        if entries == old['entries']:
+            print "No new entries added, %s not modified" % fname
+            return
 
     out = {}
     if old != None:
@@ -87,6 +90,11 @@ def process(url, outdir):
     out['url'] = url
     try:
         out['etag'] = d.etag
+    except AttributeError:
+        pass
+
+    try:
+        out['icon'] = d.icon
     except AttributeError:
         pass
 
