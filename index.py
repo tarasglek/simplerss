@@ -98,11 +98,11 @@ with open(os.path.join(OUTDIR, "index.html"),'w') as outf:
             pass
         try:
             print feed['title']
-            outf.write("<li><button data-feed='%d'>%s %s(%d)</button></li>" % (feedindex, img, feed['title'],count))
+            outf.write("<li><button data-feed='%d' data-json='%s'>%s %s(%d)</button></li>" % (feedindex, feed['filename'], img, feed['title'],count))
         except UnicodeEncodeError:
             pass
-    outf.write("""</ul><script src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
-<script src='tarss.js'>
+    outf.write("""</ul><script src='jquery.js'></script>
+<script type="application/javascript;version=1.8" src='tarss.js'>
 </script>
 </body></html>""")
     print len(all_entries)
