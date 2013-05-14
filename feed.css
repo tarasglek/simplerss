@@ -34,11 +34,17 @@ ul li a {
 a:hover {
     text-decoration: underline;
 }
-ul desc {
+#feeds desc {
     display: block;
     padding: 4px 0px 0px;
     color: rgb(102, 102, 102);
     font-size: 80%;
+    font-weight: normal;
+}
+
+#feeds summary {
+    display: block;
+    font-size: 50%;
     font-weight: normal;
 }
 

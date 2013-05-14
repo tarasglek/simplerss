@@ -36,9 +36,10 @@ function fill_li(li, json) {
   function fillmein() {
     var feed = JSON.parse(this.responseText)
     var title = $("a", li).text()
-    for each(var e in feed['entries']) {
+    for (var i in feed['entries']) {
+      var e = feed['entries'][i]
       if (e['title'] == title) {
-        var content = $("<div/>")
+        var content = $("<summary/>")
         content.html('content' in e ? e['content'][0]['value'] : e['summary'])
         $(li).append(content)
         window.foo = li

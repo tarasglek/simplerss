@@ -78,7 +78,11 @@ with open(os.path.join(OUTDIR, "index.html"),'w') as outf:
         except KeyError:
             feedkey[feedindex] = 1
         filename = feedmetas[feedindex]['filename']
-        href = get_href(e['links'])
+        try:
+            href = get_href(e['links'])
+        except KeyError:
+            href = e['href']
+
         if invalid_url_regex.search(href):
             print "%s has weird url: %s" % (filename, href)
             continue
