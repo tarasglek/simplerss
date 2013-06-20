@@ -106,7 +106,7 @@ with open(os.path.join(OUTDIR, "index.html"),'w') as outf:
         except UnicodeEncodeError:
             pass
     outf.write("""</ul><script src='jquery.js'></script>
-<script type="application/javascript;version=1.8" src='tarss.js'>
+<script src='tarss.js'>
 </script>
 </body></html>""")
     print len(all_entries)

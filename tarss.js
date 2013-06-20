@@ -7,11 +7,13 @@ function select_section(event) {
     $("#feeds li").hide()
     $("#feeds .feed"+feed_num).show()
     $("#display_all").show()
-    $("#feeds").css("height", "90%")
+    $("#navlist").css("top", "90%")
+    $("#navlist").css("height", "10%")
   } else {
     $("#display_all").hide()
     $("#feeds li").show()
-    $("#feeds").css("height", "80%")
+    $("#navlist").css("top", "80%")
+    $("#navlist").css("height", "20%")
   }
   window.scrollTo(0,0)
 }
@@ -55,7 +57,7 @@ function expand_story(event) {
   if (li.tagName != "LI")
     li = li.parentElement
   // only expand the LI once
-  if ($("div", li).length || li.tagName != "LI") {
+  if ($("summary", li).length || li.tagName != "LI") {
     console.log("refusing to expand content twice")
     return
   }
