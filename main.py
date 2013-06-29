@@ -1,7 +1,16 @@
 import listparser as lp
-import feed
-
+import os, sys
 d = lp.parse('greader/subscriptions.xml')
 OUTDIR = 'out/feeds/'
 for i in d.feeds:
-    feed.process(i.url, OUTDIR)
+    if os.fork() == 0:
+        import feed
+        feed.process(i.url, OUTDIR)
+        sys.exit(0)
+
+while True:
+    try:    
+        ret = os.wait()
+    except OSError as oe:
+        print oe
+        break
